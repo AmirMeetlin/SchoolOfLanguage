@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MetlinSchoolOfLanguageModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(MetlinSchoolOfLanguageModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(MetlinSchoolOfLanguageModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="Client" EntityType="MetlinSchoolOfLanguageModel.Client" />
+    <EntitySet Name="ClientService" EntityType="MetlinSchoolOfLanguageModel.ClientService" />
+    <EntitySet Name="ClientServiceDocument" EntityType="MetlinSchoolOfLanguageModel.ClientServiceDocument" />
+    <EntitySet Name="Gender" EntityType="MetlinSchoolOfLanguageModel.Gender" />
+    <EntitySet Name="PhotoService" EntityType="MetlinSchoolOfLanguageModel.PhotoService" />
+    <EntitySet Name="Service" EntityType="MetlinSchoolOfLanguageModel.Service" />
+    <EntitySet Name="sysdiagrams" EntityType="MetlinSchoolOfLanguageModel.sysdiagrams" />
+    <EntitySet Name="Tag" EntityType="MetlinSchoolOfLanguageModel.Tag" />
+    <EntitySet Name="VW_CientInfo" EntityType="MetlinSchoolOfLanguageModel.VW_CientInfo" />
+    <EntitySet Name="VW_ClientDetails" EntityType="MetlinSchoolOfLanguageModel.VW_ClientDetails" />
+    <AssociationSet Name="FK_Client_Gender" Association="MetlinSchoolOfLanguageModel.FK_Client_Gender">
+      <End Role="Gender" EntitySet="Gender" />
+      <End Role="Client" EntitySet="Client" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientService_Client" Association="MetlinSchoolOfLanguageModel.FK_ClientService_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="ClientService" EntitySet="ClientService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientService_Service" Association="MetlinSchoolOfLanguageModel.FK_ClientService_Service">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="ClientService" EntitySet="ClientService" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ClientServiceDocument_ClientService" Association="MetlinSchoolOfLanguageModel.FK_ClientServiceDocument_ClientService">
+      <End Role="ClientService" EntitySet="ClientService" />
+      <End Role="ClientServiceDocument" EntitySet="ClientServiceDocument" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhotoService_Service" Association="MetlinSchoolOfLanguageModel.FK_PhotoService_Service">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="PhotoService" EntitySet="PhotoService" />
+    </AssociationSet>
+    <AssociationSet Name="TagOfClient" Association="MetlinSchoolOfLanguageModel.TagOfClient">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Tag" EntitySet="Tag" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IDGender" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Photo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Gender" Relationship="MetlinSchoolOfLanguageModel.FK_Client_Gender" FromRole="Client" ToRole="Gender" />
+    <NavigationProperty Name="ClientService" Relationship="MetlinSchoolOfLanguageModel.FK_ClientService_Client" FromRole="Client" ToRole="ClientService" />
+    <NavigationProperty Name="Tag" Relationship="MetlinSchoolOfLanguageModel.TagOfClient" FromRole="Client" ToRole="Tag" />
+  </EntityType>
+  <EntityType Name="ClientService">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDClient" Type="Int32" Nullable="false" />
+    <Property Name="IDService" Type="Int32" Nullable="false" />
+    <Property Name="DateStart" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Comment" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FinalCost" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="IsConfirmed" Type="Boolean" />
+    <Property Name="DateEnd" Type="DateTime" annotation:StoreGeneratedPattern="Computed" Precision="3" />
+    <NavigationProperty Name="Client" Relationship="MetlinSchoolOfLanguageModel.FK_ClientService_Client" FromRole="ClientService" ToRole="Client" />
+    <NavigationProperty Name="Service" Relationship="MetlinSchoolOfLanguageModel.FK_ClientService_Service" FromRole="ClientService" ToRole="Service" />
+    <NavigationProperty Name="ClientServiceDocument" Relationship="MetlinSchoolOfLanguageModel.FK_ClientServiceDocument_ClientService" FromRole="ClientService" ToRole="ClientServiceDocument" />
+  </EntityType>
+  <EntityType Name="ClientServiceDocument">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDClientService" Type="Int32" Nullable="false" />
+    <Property Name="Document" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ClientService" Relationship="MetlinSchoolOfLanguageModel.FK_ClientServiceDocument_ClientService" FromRole="ClientServiceDocument" ToRole="ClientService" />
+  </EntityType>
+  <EntityType Name="Gender">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Client" Relationship="MetlinSchoolOfLanguageModel.FK_Client_Gender" FromRole="Gender" ToRole="Client" />
+  </EntityType>
+  <EntityType Name="PhotoService">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="IDService" Type="Int32" Nullable="false" />
+    <Property Name="Photo" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Service" Relationship="MetlinSchoolOfLanguageModel.FK_PhotoService_Service" FromRole="PhotoService" ToRole="Service" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Cost" Type="Decimal" Nullable="false" Precision="10" Scale="2" />
+    <Property Name="Discount" Type="Decimal" Nullable="false" Precision="3" Scale="2" />
+    <Property Name="DurationInMinute" Type="Int32" Nullable="false" />
+    <Property Name="MainPhoto" Type="String" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ClientService" Relationship="MetlinSchoolOfLanguageModel.FK_ClientService_Service" FromRole="Service" ToRole="ClientService" />
+    <NavigationProperty Name="PhotoService" Relationship="MetlinSchoolOfLanguageModel.FK_PhotoService_Service" FromRole="Service" ToRole="PhotoService" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Tag">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" />
+    <Property Name="Title" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Color" Type="String" Nullable="false" MaxLength="7" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Client" Relationship="MetlinSchoolOfLanguageModel.TagOfClient" FromRole="Tag" ToRole="Client" />
+  </EntityType>
+  <EntityType Name="VW_CientInfo">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="IDGender" />
+      <PropertyRef Name="FirstName" />
+      <PropertyRef Name="LastName" />
+      <PropertyRef Name="Patronymic" />
+      <PropertyRef Name="DateOfBirth" />
+      <PropertyRef Name="Phone" />
+      <PropertyRef Name="Email" />
+      <PropertyRef Name="RegistrationDate" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IDGender" Type="String" Nullable="false" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Patronymic" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Phone" Type="String" Nullable="false" MaxLength="12" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="RegistrationDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="LastVizit" Type="DateTime" Precision="3" />
+    <Property Name="qtyOfVizits" Type="Int32" />
+    <Property Name="Tags" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VW_ClientDetails">
+    <Key>
+      <PropertyRef Name="FIO" />
+      <PropertyRef Name="DateOfBirth" />
+    </Key>
+    <Property Name="FIO" Type="String" Nullable="false" MaxLength="302" FixedLength="false" Unicode="true" />
+    <Property Name="DateOfBirth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Age" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="NumberOfTags" Type="Int32" />
+  </EntityType>
+  <Association Name="FK_Client_Gender">
+    <End Type="MetlinSchoolOfLanguageModel.Gender" Role="Gender" Multiplicity="1" />
+    <End Type="MetlinSchoolOfLanguageModel.Client" Role="Client" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Gender">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Client">
+        <PropertyRef Name="IDGender" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientService_Client">
+    <End Type="MetlinSchoolOfLanguageModel.Client" Role="Client" Multiplicity="1" />
+    <End Type="MetlinSchoolOfLanguageModel.ClientService" Role="ClientService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ClientService">
+        <PropertyRef Name="IDClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientService_Service">
+    <End Type="MetlinSchoolOfLanguageModel.Service" Role="Service" Multiplicity="1" />
+    <End Type="MetlinSchoolOfLanguageModel.ClientService" Role="ClientService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ClientService">
+        <PropertyRef Name="IDService" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ClientServiceDocument_ClientService">
+    <End Type="MetlinSchoolOfLanguageModel.ClientService" Role="ClientService" Multiplicity="1" />
+    <End Type="MetlinSchoolOfLanguageModel.ClientServiceDocument" Role="ClientServiceDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ClientService">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ClientServiceDocument">
+        <PropertyRef Name="IDClientService" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhotoService_Service">
+    <End Type="MetlinSchoolOfLanguageModel.Service" Role="Service" Multiplicity="1" />
+    <End Type="MetlinSchoolOfLanguageModel.PhotoService" Role="PhotoService" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="PhotoService">
+        <PropertyRef Name="IDService" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="TagOfClient">
+    <End Type="MetlinSchoolOfLanguageModel.Client" Role="Client" Multiplicity="*" />
+    <End Type="MetlinSchoolOfLanguageModel.Tag" Role="Tag" Multiplicity="*" />
+  </Association>
+</Schema>

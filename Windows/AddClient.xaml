@@ -1,0 +1,272 @@
+﻿<Window x:Class="SchoolOfLanguageMetlin.Windows.AddClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SchoolOfLanguageMetlin.Windows"
+        mc:Ignorable="d"
+        Title="AddClient" Height="700" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1.5*"/>
+        </Grid.ColumnDefinitions>
+        <Image Source="/SchoolOfLanguageMetlin;component/school_logo.ico"
+                       Margin="30 0 0 0" 
+               HorizontalAlignment="Left"
+                           ></Image>
+        <TextBlock
+            Text="SchoolOfLanguage"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            Margin="100 0 0 0" 
+            FontFamily="Comic Sans MS"
+            FontSize="20"
+            Grid.ColumnSpan="2"
+                    ></TextBlock>
+        <TextBlock
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            HorizontalAlignment="Center"
+            FontSize="25"
+            Margin="0 5 0 0"
+            x:Name="tbTitle"
+            FontFamily="Comic Sans MS"
+            >
+            Добавление клиентов
+        </TextBlock>
+        <TextBlock
+            FontSize="20"
+            Grid.Row="2"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Margin="0 0 10 0"
+            FontFamily="Comic Sans MS"
+            >
+            Фамилия :
+        </TextBlock>
+        <TextBlock
+            FontSize="20"
+            Grid.Row="3"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Margin="0 0 10 0"
+            FontFamily="Comic Sans MS"
+            >
+            Имя :
+        </TextBlock>
+        <TextBlock
+            FontSize="20"
+            Grid.Row="4"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Margin="0 0 10 0"
+            FontFamily="Comic Sans MS"
+            >
+            Отчество :
+        </TextBlock>
+        <TextBlock
+            FontSize="20"
+            Grid.Row="5"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Margin="0 0 10 0"
+            FontFamily="Comic Sans MS"
+            >
+            Телефон :
+        </TextBlock>
+
+        <TextBlock
+            FontSize="20"
+            Grid.Row="6"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Margin="0 0 10 0"
+            FontFamily="Comic Sans MS"
+            >
+            Дата рождения :
+        </TextBlock>
+        <TextBlock
+            FontSize="20"
+            Grid.Row="7"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Margin="0 0 10 0"
+            FontFamily="Comic Sans MS"
+            >
+            Почта :
+        </TextBlock>
+        <TextBlock
+            FontSize="20"
+            Grid.Row="8"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Margin="0 0 10 0"
+            FontFamily="Comic Sans MS"
+            >
+            Пол :
+        </TextBlock>
+        <TextBlock
+            FontSize="20"
+            Grid.Row="9"
+            HorizontalAlignment="Right"
+            VerticalAlignment="Center"
+            Margin="0 0 10 0"
+            FontFamily="Comic Sans MS"
+            >
+            ИД :
+        </TextBlock>
+        <TextBlock
+            FontSize="20"
+            Grid.Row="9"
+            Grid.Column="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Margin="0 0 10 0"
+            x:Name="tbID"
+            FontFamily="Comic Sans MS"
+            >
+            ИД
+        </TextBlock>
+        <TextBox
+            Grid.Row="2"
+            Grid.Column="1"
+            Height="35"
+            Width="250"
+            VerticalContentAlignment="Center"
+            FontSize="15"
+            MaxLength="100"
+            x:Name="tbFirstName" 
+            PreviewTextInput="textBoxes_PreviewTextInput"
+            FontFamily="Comic Sans MS"
+            >
+        </TextBox>
+        <TextBox
+            Grid.Row="3"
+            Grid.Column="1"
+            Height="35"
+            Width="250"
+            VerticalContentAlignment="Center"
+            FontSize="15"
+            MaxLength="100"
+            x:Name="tbSecondName"
+            PreviewTextInput="textBoxes_PreviewTextInput"
+            FontFamily="Comic Sans MS"
+            >
+        </TextBox>
+        <TextBox
+            Grid.Row="4"
+            Grid.Column="1"
+            Height="35"
+            Width="250"
+            VerticalContentAlignment="Center"
+            FontSize="15"
+            MaxLength="100"
+            x:Name="tbPatronymic"
+            PreviewTextInput="textBoxes_PreviewTextInput"
+            FontFamily="Comic Sans MS"
+            >
+        </TextBox>
+        <TextBox
+            Grid.Row="5"
+            Grid.Column="1"
+            Height="35"
+            Width="250"
+            VerticalContentAlignment="Center"
+            FontSize="15"
+            x:Name="tbPhone"
+            FontFamily="Comic Sans MS"
+            >
+        </TextBox>
+        <DatePicker
+            Grid.Row="6"
+            Grid.Column="1"
+            Height="35"
+            Width="250"
+            VerticalContentAlignment="Center"
+            FontSize="15"
+            x:Name="dpBirthday"
+            FontFamily="Comic Sans MS"
+            >
+
+        </DatePicker>
+        <TextBox
+            Grid.Row="7"
+            Grid.Column="1"
+            Height="35"
+            Width="250"
+            VerticalContentAlignment="Center"
+            FontSize="15"
+            MaxLength="50"
+            x:Name="tbMail"
+            FontFamily="Comic Sans MS"
+            >
+        </TextBox>
+        <ComboBox
+            Grid.Row="8"
+            Grid.Column="1"
+            Height="35"
+            Width="250"
+            VerticalContentAlignment="Center"
+            FontSize="15"
+            x:Name="cbGender"
+            FontFamily="Comic Sans MS"
+            >
+        </ComboBox>
+        <Border Background="#FF04A0FF"
+                Grid.Row="10"
+                Grid.ColumnSpan="2"
+                Width="175"
+                Margin="5"
+                CornerRadius="10">
+            <Image x:Name="photoUser" 
+                   />
+        </Border>
+        <Button x:Name="btnChoosePhoto"
+                Grid.Row="11" 
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                Width="150"
+                Height="30"
+                Content="Выбрать фото"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Margin="10 0"
+                FontSize="16"
+                VerticalContentAlignment="Center"
+                Background="{x:Null}"
+                BorderThickness="0" 
+                Click="btnChoosePhoto_Click"
+                />
+        <Button
+            x:Name="btnSend"
+            Grid.ColumnSpan="2"
+            Grid.Row="12"
+            HorizontalAlignment="Center"
+            FontSize="25"
+            Width="200"
+            Height="40"
+            Click="btnSend_Click"
+            FontFamily="Comic Sans MS"
+            Background="#FF04A0FF"
+            Foreground="White"         
+            >
+            Отправить
+        </Button>
+    </Grid>
+</Window>
