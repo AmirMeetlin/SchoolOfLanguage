@@ -23,3 +23,8 @@ C:\Users\Преподаватель\source\repos\SchoolOfLanguageMetlin\obj\Debu
 C:\Users\Преподаватель\source\repos\SchoolOfLanguageMetlin\obj\Debug\Windows\AddClient.baml
 C:\Users\Преподаватель\source\repos\SchoolOfLanguageMetlin\obj\Debug\Windows\Vizits.g.cs
 C:\Users\Преподаватель\source\repos\SchoolOfLanguageMetlin\obj\Debug\Windows\Vizits.baml
+C:\Users\Преподаватель\source\repos\SchoolOfLanguageMetlin\obj\Debug\Window1.g.cs
+C:\Users\Преподаватель\source\repos\SchoolOfLanguageMetlin\obj\Debug\Window1.baml
+C:\Users\Преподаватель\source\repos\SchoolOfLanguageMetlin\obj\Debug\Windows\ChooseTags.g.cs
+C:\Users\Преподаватель\source\repos\SchoolOfLanguageMetlin\obj\Debug\Windows\ChooseTags.baml
+C:\Users\Преподаватель\source\repos\SchoolOfLanguageMetlin\obj\Debug\SchoolOfLanguageMetlin.csprojAssemblyReference.cache

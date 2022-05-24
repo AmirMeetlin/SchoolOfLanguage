@@ -234,12 +234,6 @@ namespace SchoolOfLanguageMetlin
             AddClient addClient = new AddClient(client);
             addClient.ShowDialog();
             Filter();
-
-
-            //var equipment = lvEquipment.SelectedItem as EF.Product;
-            //AddEquipment addEquipment = new AddEquipment(equipment);
-            //addEquipment.ShowDialog();
-            //Filter();
         }
 
         private void LvClients_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -249,7 +243,9 @@ namespace SchoolOfLanguageMetlin
 
         private void BtnShowAllVizits_Click(object sender, RoutedEventArgs e)
         {
-
+            var client = lvClients.SelectedItem as EF.Client;
+            Vizits vizit = new Vizits(client);
+            vizit.ShowDialog();
         }
     }
 }

@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Преподаватель\source\repos\SchoolOfLanguageMetlin\App.xaml
-3-785183570
+5893686227
 2323130722
-251099846478
+28643092125
 18171749742
-Windows\AddClient.xaml;Windows\MainWindow.xaml;Windows\Vizits.xaml;
+Window1.xaml;Windows\AddClient.xaml;Windows\ChooseTags.xaml;Windows\MainWindow.xaml;Windows\Vizits.xaml;
 
-True
+False
 

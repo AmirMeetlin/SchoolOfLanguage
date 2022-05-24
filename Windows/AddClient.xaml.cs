@@ -64,48 +64,6 @@ namespace SchoolOfLanguageMetlin.Windows
             isEdit = true;
             editClient = client;
         }
-
-
-
-        //public AddEmployee(EF.Employee employee)
-        //{
-        //    InitializeComponent();
-        //    cbGender.ItemsSource = ClassHelper.AppData.Conrext.Gender.ToList();
-        //    cbGender.DisplayMemberPath = "Gender1";
-        //    cbRole.ItemsSource = ClassHelper.AppData.Conrext.Role.ToList();
-        //    cbRole.DisplayMemberPath = "Role1";
-                                                                                                                                           
-        //    tbFirstName.Text = employee.FirstName;
-        //    tbSecondName.Text = employee.SecondName;
-        //    tbPatronymic.Text = employee.Patronymic;
-        //    tbPhone.Text = employee.Phone;
-        //    cbGender.SelectedIndex = employee.IDGender - 1;
-        //    cbRole.SelectedIndex = employee.IDRole - 1;
-        //    tbLogin.Text = employee.Login;
-        //    Login = employee.Login;
-        //    tbPassword.Password = employee.Password;
-
-        //    if (employee.Photo != null)
-        //    {
-        //        using (MemoryStream stream = new MemoryStream(employee.Photo))
-        //        {
-        //            BitmapImage bitmapImage = new BitmapImage();
-        //            bitmapImage.BeginInit();
-        //            bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
-        //            bitmapImage.CreateOptions = BitmapCreateOptions.PreservePixelFormat;
-        //            bitmapImage.StreamSource = stream;
-        //            bitmapImage.EndInit();
-
-        //            photoUser.Source = bitmapImage;
-        //        }
-
-        //    }
-
-        //    tbTitle.Text = "Изменение работников";
-
-        //    isEdit = true;
-        //    editEmployee = employee;
-        //}
         private void textBoxes_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
 
@@ -220,12 +178,18 @@ namespace SchoolOfLanguageMetlin.Windows
                 {
                     newClient.Photo = pathPhoto;
                 }
-
+                editClient = newClient;
                 Classhelper.AppData.Context.SaveChanges();
 
                 this.Close();
             }
             
+        }
+
+        private void BtnChooseTags_Click(object sender, RoutedEventArgs e)
+        {
+            ChooseTags chooseTags = new ChooseTags(editClient);
+            chooseTags.ShowDialog();
         }
     }
 }

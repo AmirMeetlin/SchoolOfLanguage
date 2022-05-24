@@ -4,17 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="0f6aaf644ecf4e5c90afb1972e5f5e4e" Name="Diagram1" ZoomLevel="78">
-        <EntityTypeShape EntityType="MetlinSchoolOfLanguageModel.Client" Width="1.5" PointX="3.75" PointY="7.125" />
-        <EntityTypeShape EntityType="MetlinSchoolOfLanguageModel.ClientService" Width="1.5" PointX="6" PointY="2.375" />
-        <EntityTypeShape EntityType="MetlinSchoolOfLanguageModel.ClientServiceDocument" Width="1.5" PointX="8.25" PointY="3" />
-        <EntityTypeShape EntityType="MetlinSchoolOfLanguageModel.Gender" Width="1.5" PointX="1.5" PointY="8.125" />
-        <EntityTypeShape EntityType="MetlinSchoolOfLanguageModel.PhotoService" Width="1.5" PointX="3" PointY="3" />
+      <Diagram DiagramId="0f6aaf644ecf4e5c90afb1972e5f5e4e" Name="Diagram1" ZoomLevel="83">
+        <EntityTypeShape EntityType="MetlinSchoolOfLanguageModel.Client" Width="1.5" PointX="0.75" PointY="7.125" />
+        <EntityTypeShape EntityType="MetlinSchoolOfLanguageModel.ClientService" Width="1.5" PointX="3" PointY="2.375" />
+        <EntityTypeShape EntityType="MetlinSchoolOfLanguageModel.ClientServiceDocument" Width="1.5" PointX="5.25" PointY="3" />
+        <EntityTypeShape EntityType="MetlinSchoolOfLanguageModel.Gender" Width="1.5" PointX="1.5" PointY="12.125" />
+        <EntityTypeShape EntityType="MetlinSchoolOfLanguageModel.PhotoService" Width="1.5" PointX="3" PointY="6.875" />
         <EntityTypeShape EntityType="MetlinSchoolOfLanguageModel.Service" Width="1.5" PointX="0.75" PointY="2.625" />
-        <EntityTypeShape EntityType="MetlinSchoolOfLanguageModel.sysdiagrams" Width="1.5" PointX="8.75" PointY="5.75" />
-        <EntityTypeShape EntityType="MetlinSchoolOfLanguageModel.Tag" Width="1.5" PointX="6" PointY="8" />
-        <EntityTypeShape EntityType="MetlinSchoolOfLanguageModel.VW_CientInfo" Width="1.5" PointX="8.75" PointY="8.75" />
-        <EntityTypeShape EntityType="MetlinSchoolOfLanguageModel.VW_ClientDetails" Width="1.5" PointX="10.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MetlinSchoolOfLanguageModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="5.75" />
+        <EntityTypeShape EntityType="MetlinSchoolOfLanguageModel.Tag" Width="1.5" PointX="3" PointY="15" />
+        <EntityTypeShape EntityType="MetlinSchoolOfLanguageModel.VW_CientInfo" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MetlinSchoolOfLanguageModel.VW_ClientDetails" Width="1.5" PointX="7.75" PointY="5.75" />
         <AssociationConnector Association="MetlinSchoolOfLanguageModel.FK_Client_Gender" />
         <AssociationConnector Association="MetlinSchoolOfLanguageModel.FK_ClientService_Client" />
         <AssociationConnector Association="MetlinSchoolOfLanguageModel.FK_ClientService_Service" />

@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SchoolOfLanguageMetlin.Windows"
         mc:Ignorable="d"
-        Title="AddClient" Height="700" Width="600">
+        Title="AddClient" Height="800" Width="600">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="1*"/>
@@ -228,17 +229,31 @@
             FontFamily="Comic Sans MS"
             >
         </ComboBox>
-        <Border Background="#FF04A0FF"
-                Grid.Row="10"
+        <Button
+            x:Name="btnChooseTags"
+            Grid.ColumnSpan="2"
+            Grid.Row="10"
+            HorizontalAlignment="Center"
+            FontSize="20"
+            Width="150"
+            Height="30"
+            FontFamily="Comic Sans MS"
+            Background="#FF04A0FF"
+            Foreground="White" Click="BtnChooseTags_Click"         
+            >
+            Выбрать теги
+        </Button>
+        <Border
+                Grid.Row="11"
                 Grid.ColumnSpan="2"
                 Width="175"
                 Margin="5"
-                CornerRadius="10">
+                CornerRadius="10" Background="#FFE7FABF">
             <Image x:Name="photoUser" 
                    />
         </Border>
         <Button x:Name="btnChoosePhoto"
-                Grid.Row="11" 
+                Grid.Row="12" 
                 Grid.Column="0"
                 Grid.ColumnSpan="2"
                 Width="150"
@@ -256,7 +271,7 @@
         <Button
             x:Name="btnSend"
             Grid.ColumnSpan="2"
-            Grid.Row="12"
+            Grid.Row="14"
             HorizontalAlignment="Center"
             FontSize="25"
             Width="200"

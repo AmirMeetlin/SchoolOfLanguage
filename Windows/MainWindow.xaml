@@ -141,10 +141,12 @@
             >
             <Button        
             Content="Очистить"
-            Height="25"
-            
+            Height="25"           
             Margin="30 0 0 0"   
-            FontFamily="Comic Sans MS" Background="#FF04A0FF" Foreground="White" Click="Button_Click"
+            FontFamily="Comic Sans MS" 
+            Background="#FF04A0FF" 
+            Foreground="White" 
+            Click="Button_Click"
             />
             <Button        
             Content="Добавить новую запись"
@@ -153,7 +155,8 @@
             Margin="30 0 0 0"   
             FontFamily="Comic Sans MS"
             Background="#FF04A0FF"
-            Foreground="White" Click="BtnAddClient_Click"
+            Foreground="White"
+            Click="BtnAddClient_Click"
             />
             <Button        
             Content="Показать посещения"
@@ -163,7 +166,8 @@
             FontFamily="Comic Sans MS"
             Background="#FF04A0FF"
             Foreground="White" 
-                Visibility="Hidden" Click="BtnShowAllVizits_Click"
+            Visibility="Hidden"
+            Click="BtnShowAllVizits_Click"
             />
         </WrapPanel>
         <WrapPanel    
