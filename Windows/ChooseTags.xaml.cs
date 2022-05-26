@@ -20,27 +20,53 @@ namespace SchoolOfLanguageMetlin.Windows
     public partial class ChooseTags : Window
     {
 
+        EF.Client globalClient;
+        List<EF.Tag> listTags = new List<EF.Tag>();
+        List<EF.Tag> listTagClient = new List<EF.Tag>();
         public ChooseTags(EF.Client client)
         {
-            List<EF.Tag> listTags = new List<EF.Tag>();
+            globalClient = client;
+            listTagClient = globalClient.Tags as List<EF.Tag>;
             listTags = Classhelper.AppData.Context.Tag.ToList();
-            List<EF.Tag> listTagClient = client.Tags as List<EF.Tag>;
-            EF.Tag AllTags = new EF.Tag();
-
-            //EF.Tag NotClientTag;
-            //foreach (EF.Tag tag in client.Tags)
-            //{
-            //    if (AllTags.ID == tag.ID)
-            //    {
-            //        MessageBox.Show(" ");
-            //        //listTags.Remove(tag);
-            //    }
-            //}
-            //EF.Tag tag = client.Tags as EF.Tag;
-            //listTags = listTags.Where(i => i.ID != tag.ID).ToList();
+            foreach (EF.Tag tags in listTags.ToArray())
+            {
+                foreach (EF.Tag tagOfClient in listTagClient.ToArray())
+                {
+                    if (tags.ID == tagOfClient.ID)
+                    {
+                        listTags.Remove(tags);
+                    }
+                }
+            }
             InitializeComponent();
-            lvSelectedTags.ItemsSource = listTagClient;          
+            Filter();
+        }
+        private void Filter()
+        {
+            lvSelectedTags.ItemsSource = listTagClient;
             lvSelectTags.ItemsSource = listTags;
+        }
+
+        private void LvSelectedTags_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if(lvSelectedTags.SelectedItem is EF.Tag)
+            {
+                var tag = lvSelectedTags.SelectedItem as EF.Tag;
+                listTagClient.Remove(tag);
+                listTags.Add(tag);
+                Filter();
+            }          
+        }
+
+        private void LvSelectTags_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (lvSelectedTags.SelectedItem is EF.Tag)
+            {
+                var tag = lvSelectedTags.SelectedItem as EF.Tag;
+                listTags.Remove(tag);
+                listTagClient.Add(tag);
+                Filter();
+            }
         }
     }
 }
