@@ -43,30 +43,71 @@ namespace SchoolOfLanguageMetlin.Windows
         }
         private void Filter()
         {
-            lvSelectedTags.ItemsSource = listTagClient;
-            lvSelectTags.ItemsSource = listTags;
+            lvSelectedTags.ItemsSource = listTagClient.ToList();
+            lvSelectTags.ItemsSource = listTags.ToList();
         }
 
         private void LvSelectedTags_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if(lvSelectedTags.SelectedItem is EF.Tag)
-            {
+            if (lvSelectedTags.SelectedItem is EF.Tag)
+            {             
                 var tag = lvSelectedTags.SelectedItem as EF.Tag;
-                listTagClient.Remove(tag);
+                //delByValue(ref listTagClientArray, tag);
                 listTags.Add(tag);
+                listTagClient.Remove(tag);
+                //EF.Tag[] listTagClientArray = listTagClient.ToArray();
+                //EF.Tag[] listTagsArray = listTags.ToArray();
+                //listTagClient = listTagClientArray.ToList();
+                //listTags = listTagsArray.ToList();
                 Filter();
-            }          
+            }
         }
 
         private void LvSelectTags_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            if (lvSelectedTags.SelectedItem is EF.Tag)
-            {
-                var tag = lvSelectedTags.SelectedItem as EF.Tag;
-                listTags.Remove(tag);
+            if (lvSelectTags.SelectedItem is EF.Tag)
+            {               
+                var tag = lvSelectTags.SelectedItem as EF.Tag;
+                //delByValue(ref listTagsArray, tag);
                 listTagClient.Add(tag);
+                listTags.Remove(tag);
+                //EF.Tag[] listTagClientArray = listTagClient.ToArray();
+                //EF.Tag[] listTagsArray = listTags.ToArray();
+                //listTags = listTagsArray.ToList();
+                //listTagClient = listTagClientArray.ToList();
                 Filter();
             }
+        }
+        public static void delByIndex(ref EF.Tag[] data, int delIndex)
+        {
+            EF.Tag[] newData = new EF.Tag[data.Length - 1];
+            for (int i = 0; i < delIndex; i++)
+            {
+                newData[i] = data[i];
+            }
+            for (int i = delIndex; i < newData.Length; i++)
+            {
+                newData[i] = data[i + 1];
+            }
+            data = newData;
+        }
+
+        public static void delByValue(ref EF.Tag[] data, EF.Tag delValue)
+        {
+            for (int i = 0; i < data.Length; i++)
+            {
+                if (data[i] == delValue)
+                {
+                    delByIndex(ref data, i);
+                    i--;
+                }
+            }
+        }
+
+        private void BtnSend_Click(object sender, RoutedEventArgs e)
+        {
+            globalClient.Tag = listTagClient;
+            this.Close();
         }
     }
 }

@@ -93,7 +93,7 @@
             Height="40"
             FontFamily="Comic Sans MS"
             Background="#FF04A0FF"
-            Foreground="White"         
+            Foreground="White" Click="BtnSend_Click"         
             >
             Отправить
         </Button>
